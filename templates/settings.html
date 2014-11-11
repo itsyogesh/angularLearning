@@ -9,8 +9,15 @@
                   <label>Name</label>
                   <input type="text" placeholder="Name" name="name"
                   ng-model="settings.name" ng-minlength=3 ng-maxlength=20 ng-pattern="/^[a-zA-Z]+$/" required/>
-                  <div ng-show="true">
-                    This is an element
+                  <div ng-show="form.name.$dirty && form.name.$invalid">
+                  <div ng-show="form.name.$error.required">
+                      Your name is required.
+                  </div>
+                  <div ng-show="form.name.$error.minlength">
+                  Your name must be greater than 3 characters.
+                  </div>
+                  <div ng-show="form.name.$error.maxlength">
+                  Your name must be smaller than 20 characters.
                   </div>
               </div>
           </div>
